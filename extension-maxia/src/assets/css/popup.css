@@ -1,0 +1,173 @@
+/* Styles généraux */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  width: 350px;
+  min-height: 400px;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 16px;
+}
+
+h1 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Formulaire de connexion */
+.login-form {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-actions {
+  margin-top: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #4285f4;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #3367d6;
+}
+
+.btn-danger {
+  background-color: #ea4335;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #d33426;
+}
+
+.message {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #d33426;
+  text-align: center;
+}
+
+/* Section principale */
+.user-info {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info p {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.user-info span {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Liste des flux */
+.workflows-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.workflows-list {
+  list-style: none;
+}
+
+.workflow-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workflow-item:last-child {
+  border-bottom: none;
+}
+
+.workflow-info {
+  flex: 1;
+}
+
+.workflow-info h3 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.workflow-info p {
+  font-size: 12px;
+  color: #666;
+}
+
+.no-workflows {
+  text-align: center;
+  color: #666;
+  padding: 16px 0;
+}
+
+/* Actions */
+.actions {
+  text-align: center;
+  margin-top: 16px;
+} 
