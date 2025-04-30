@@ -4,26 +4,26 @@
   "version": "1.0.0",
   "description": "Extension d'optimisation pour le travail sur v-mobility.fr/ireception",
   "icons": {
-    "16": "src/assets/icons/icon16.png",
-    "48": "src/assets/icons/icon48.png",
-    "128": "src/assets/icons/icon128.png"
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
   },
   "action": {
-    "default_popup": "src/popup/popup.html",
+    "default_popup": "popup.html",
     "default_icon": {
-      "16": "src/assets/icons/icon16.png",
-      "48": "src/assets/icons/icon48.png",
-      "128": "src/assets/icons/icon128.png"
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
     }
   },
   "background": {
-    "service_worker": "src/background/background.js"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "matches": ["https://saas.v-mobility.fr/ireception/*"],
-      "js": ["src/content/content.js"],
-      "css": ["src/assets/css/content.css"]
+      "js": ["content.js"],
+      "css": ["assets/css/content.css"]
     }
   ],
   "permissions": [

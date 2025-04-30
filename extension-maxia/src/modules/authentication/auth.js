@@ -169,4 +169,7 @@ class AuthModule {
       chrome.storage.local.remove([this.tokenKey, this.userKey], resolve);
     });
   }
-} 
+}
+
+// Exporter la classe pour la rendre accessible globalement
+window.AuthModule = AuthModule; 

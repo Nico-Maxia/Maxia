@@ -150,4 +150,7 @@ class WorkflowsModule {
       });
     });
   }
-} 
+}
+
+// Exporter la classe pour la rendre accessible globalement
+window.WorkflowsModule = WorkflowsModule; 
