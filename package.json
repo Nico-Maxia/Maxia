@@ -1,0 +1,16 @@
+{
+  "name": "maxia-workspace",
+  "version": "1.0.0",
+  "description": "Workspace principal pour le projet Maxia",
+  "private": true,
+  "scripts": {
+    "start:client": "cd dashboard-client && npm run dev",
+    "start:admin": "cd dashboard-admin && npm run dev",
+    "start:website": "cd web-site && npm run dev",
+    "start:extension": "cd extension-maxia && npm run dev",
+    "start:all": "concurrently \"npm run start:client\" \"npm run start:admin\" \"npm run start:website\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+} 
