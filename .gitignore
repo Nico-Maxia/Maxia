@@ -1,32 +1,38 @@
-# Dépendances
-node_modules/
+# Dependencies
+/node_modules
+*/node_modules
+/*/*/node_modules
 
-# Environnement
+# Production build files
+/dist
+/build
+*/dist
+*/build
+*/.next
+*/*/.next
+
+# Environment files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Builds
-dist/
-build/
-.cache/
-
-# Éditeurs
-.vscode/
-.cursor/
-.idea/
-
-# Système
-.DS_Store
-Thumbs.db
-
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-*.log
 
-# Divers
-coverage/ 
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+.cursor
+
+# Cache
+.cache/ 

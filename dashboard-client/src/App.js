@@ -1,49 +1,39 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+// Import du contexte d'authentification
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+
+// Import des routes des modules
+import AuthRoutes from './modules/auth/routes';
+import LicensesRoutes from './modules/licenses/routes';
+
+// Import des composants
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>Dashboard Client Maxia</h1>
-        </header>
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
-  );
-}
-
-function Home() {
-  return (
-    <div>
-      <h2>Bienvenue sur le Dashboard Client Maxia</h2>
-      <p>Ce tableau de bord vous permet de gérer vos licences et de suivre l'activité de l'extension.</p>
-    </div>
-  );
-}
-
-function Login() {
-  return (
-    <div>
-      <h2>Connexion</h2>
-      <form>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" />
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <main>
+            <Routes>
+              {/* Routes publiques */}
+              {AuthRoutes}
+              
+              {/* Routes protégées */}
+              <Route element={<ProtectedRoute />}>
+                <Route path="/" element={<Home />} />
+                {LicensesRoutes}
+              </Route>
+            </Routes>
+          </main>
         </div>
-        <div>
-          <label htmlFor="password">Mot de passe</label>
-          <input type="password" id="password" name="password" />
-        </div>
-        <button type="submit">Se connecter</button>
-      </form>
-    </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

@@ -1,6 +1,64 @@
-# Extension Maxia pour V-Mobility
+# Extension Chrome Maxia
 
-Cette extension Chrome est conçue pour optimiser le travail des employés sur la plateforme [V-Mobility](https://saas.v-mobility.fr/ireception/).
+Cette extension Chrome est conçue pour optimiser le travail des employés sur le site https://saas.v-mobility.fr/ireception/.
+
+## Structure du Module
+
+```
+├── public/              # Ressources statiques
+│   ├── manifest.json    # Manifeste de l'extension
+│   ├── icons/           # Icônes de l'extension
+│   └── popup.html       # HTML du popup
+├── src/                 # Code source
+│   ├── background/      # Scripts d'arrière-plan
+│   ├── content/         # Scripts de contenu
+│   ├── popup/           # Interface utilisateur du popup
+│   ├── utils/           # Utilitaires
+│   └── types/           # Types TypeScript
+└── .env                 # Variables d'environnement
+```
+
+## Installation et Configuration
+
+1. Copier le fichier de configuration
+   ```bash
+   cp ../config/env.example .env
+   ```
+
+2. Modifier les variables d'environnement selon vos besoins
+
+3. Installer les dépendances
+   ```bash
+   npm install
+   ```
+
+4. Construire l'extension
+   ```bash
+   npm run build
+   ```
+
+5. Charger l'extension dans Chrome
+   - Ouvrir Chrome et naviguer vers `chrome://extensions/`
+   - Activer le "Mode développeur"
+   - Cliquer sur "Charger l'extension non empaquetée"
+   - Sélectionner le dossier `dist` créé lors de la construction
+
+## Utilisation
+
+1. L'employé doit se connecter à l'extension avec ses identifiants fournis par son dirigeant
+2. L'extension vérifie si la licence est valide auprès de l'API Client
+3. Une fois connecté, l'employé peut utiliser les différents flux de travail disponibles
+
+## Communication avec le Backend
+
+L'extension communique avec l'API Client (dashboard-client) sur le port 3002 pour:
+- Authentifier les utilisateurs
+- Vérifier la validité des licences
+- Enregistrer les statistiques d'utilisation des flux
+
+## Flux de Travail
+
+Chaque flux est composé de plusieurs actions qui interagissent avec le site cible. Les flux sont identifiables et leur utilisation est comptabilisée dans le tableau de bord client.
 
 ## Fonctionnalités
 
@@ -33,32 +91,6 @@ L'extension est conçue de manière modulaire pour faciliter la maintenance et l
 │       ├── utils/           # Utilitaires partagés
 │       └── api/             # Communication avec le backend
 └── libs/                    # Bibliothèques externes
-```
-
-## Installation en mode développement
-
-1. Ouvrir Chrome et naviguer vers `chrome://extensions/`
-2. Activer le "Mode développeur" en haut à droite
-3. Cliquer sur "Charger l'extension non empaquetée"
-4. Sélectionner le dossier `extension-maxia`
-
-## Développement
-
-### Prérequis
-
-- Google Chrome ou un navigateur basé sur Chromium
-- Connaissance de JavaScript, HTML et CSS
-
-### Commandes pour le développement
-
-Pour installer les dépendances de développement (si nécessaire à l'avenir):
-
-```npm install
-```
-
-Pour construire l'extension (si un système de build est ajouté ultérieurement):
-
-```npm run build
 ```
 
 ## Intégration avec le Dashboard Client

@@ -3,13 +3,16 @@ const express = require('express');
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
 
+const licenseRoutes = require('./routes/licenseRoutes');
+const authRoutes = require('./routes/authRoutes');
+
 const app = express();
 const prisma = new PrismaClient();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.ADMIN_API_PORT || 3001;
 
 // Middleware
 app.use(cors({
-  origin: process.env.CORS_ORIGIN,
+  origin: process.env.ADMIN_CORS_ORIGIN || 'http://localhost:3003',
   credentials: true
 }));
 app.use(express.json());
@@ -18,6 +21,10 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.json({ message: 'API Dashboard Admin Maxia' });
 });
+
+// Routes d'API
+app.use('/api/v1/licenses', licenseRoutes);
+app.use('/api/v1/auth', authRoutes);
 
 // Route de test pour vérifier la connexion à la base de données
 app.get('/api/test-db', async (req, res) => {
@@ -37,9 +44,9 @@ app.get('/api/test-db', async (req, res) => {
 });
 
 // Démarrage du serveur
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.ADMIN_NODE_ENV !== 'test') {
   app.listen(PORT, () => {
-    console.log(`Serveur démarré sur le port ${PORT}`);
+    console.log(`Serveur Admin démarré sur le port ${PORT}`);
   });
 }
 
